@@ -10,6 +10,7 @@ function App() {
   function handleSelect(selectedButton){
     //selectedButton -> 'components', 'jsx', 'props', 'state' 
     tabContent = selectedButton;
+    console.log(tabContent);
   }
   console.log('APP COMPONENT RENDERING');
   return (
