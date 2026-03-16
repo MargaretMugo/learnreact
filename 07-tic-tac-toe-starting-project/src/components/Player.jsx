@@ -1,7 +1,7 @@
 import useState from 'react';
 export default function Player({ name, symbol }) {
     // isEditing = false, setIsEditing = true
-    const [isEditing, setIsEditing] = useState(false);
+    const [isEditing, setIsEditing] = useState();
     function handleEditClick() {
         setIsEditing(true);
     }
