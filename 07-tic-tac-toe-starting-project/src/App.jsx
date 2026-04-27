@@ -27,7 +27,9 @@ function App() {
           <Player name='Player 1' symbol='X' isActive={activePlayer === 'X'} />
           <Player name='Player 2' symbol='O' isActive={activePlayer === 'O'} />
         </ol>
-        <Gameboard onSelectSquare={handleSelectSquare} activePlayerSymbol={activePlayer} />
+        <Gameboard onSelectSquare={handleSelectSquare}
+        turns = {gameTurns} 
+        activePlayerSymbol={activePlayer} />
       </div>
       <Log />
     </main>
