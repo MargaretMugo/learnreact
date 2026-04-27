@@ -12,13 +12,13 @@ function App() {
     setGameTurns(
       (prevTurns) => {
         let currentPlayer = 'X';
-        if(prevTurns[0].player === 'X'){
-          
+        if(prevTurns.length > 0 && prevTurns[0].player === 'X'){//if the previous turn is 1 if the latest stored turn = X do this
+          currentPlayer = 'O';
         }
-        const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player : activePlayer }, ...prevTurns]
-      }//...prevTurns copies the existing prevTurns
-    );
-  }
+        const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player : activePlayer }, ...prevTurns];
+        return updatedTurns;
+      });//...prevTurns copies the existing prevTurn);
+}
   return (
     <main>
       <div id='game-container'>
