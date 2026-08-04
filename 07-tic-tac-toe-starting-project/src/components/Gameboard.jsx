@@ -29,7 +29,7 @@ export default function Gameboard({ onSelectSquare , turns}) {
                 <ol>
                     {row.map((playerSymbol, colIndex) =>
                         <li key={colIndex}>
-                            <button onClick={onSelectSquare}></button>
+                            <button onClick={() => onSelectSquare(rowIndex , colIndex)}></button>
                         </li>)}
                 </ol>
             </li>)}
