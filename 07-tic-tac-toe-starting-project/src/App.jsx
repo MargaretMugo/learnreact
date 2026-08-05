@@ -24,8 +24,8 @@ function App() {
       <div id='game-container'>
         {/* Players */}
         <ol id='players' className='highlight-player'>
-          <Player name='Player 1' symbol='X' isActive={activePlayer === 'X'} />
-          <Player name='Player 2' symbol='O' isActive={activePlayer === 'O'} />
+          <Player initialName='Player 1' symbol='X' isActive={activePlayer === 'X'} />
+          <Player initialName='Player 2' symbol='O' isActive={activePlayer === 'O'} />
         </ol>
         <Gameboard onSelectSquare={handleSelectSquare}
         turns = {gameTurns}/>
