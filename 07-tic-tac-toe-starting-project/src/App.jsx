@@ -20,7 +20,7 @@ function App() {
     // setActivePlayer((curActivePlayer) => curActivePlayer === 'X' ? 'O' : 'X');
     setGameTurns(
       (prevTurns) => {
-        currentPlayer = deriveActivePlayer(prevTurns);
+        const currentPlayer = deriveActivePlayer(prevTurns);
         const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player : activePlayer }, ...prevTurns];
         return updatedTurns;
       });//...prevTurns copies the existing prevTurn);
