@@ -48,6 +48,7 @@ function App() {
       (prevTurns) => {
         const currentPlayer = deriveActivePlayer(prevTurns);
         const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player: currentPlayer }, ...prevTurns];
+        return updatedTurns;
       });//...prevTurns copies the existing prevTurn);
 }
   return (
