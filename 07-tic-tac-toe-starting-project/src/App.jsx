@@ -3,6 +3,7 @@ import Player from "./components/Player";
 import Gameboard from "./components/Gameboard";
 import Log from './components/Log';
 import { WINNING_COMBINATIONS } from './winning-combinations';
+import GameOver from './components/Gameover';
 
 function deriveActivePlayer(gameTurns){
   let currentPlayer = 'X';
@@ -18,9 +19,13 @@ function App() {
   //const [activePlayer, setActivePlayer] = useState('X');
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard = initialGameBoard;
+  let gameBoard = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ];
 
-  for (const turn of turns) {
+  for (const turn of gameTurns) {
     const { square, player } = turn;
     const { row, col } = square;
 
@@ -43,7 +48,7 @@ function App() {
     setGameTurns(
       (prevTurns) => {
         const currentPlayer = deriveActivePlayer(prevTurns);
-        const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player : activePlayer }, ...prevTurns];
+        const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player: currentPlayer }, ...prevTurns];
         return updatedTurns;
       });//...prevTurns copies the existing prevTurn);
 }
@@ -55,7 +60,7 @@ function App() {
           <Player initialName='Player 1' symbol='X' isActive={activePlayer === 'X'} />
           <Player initialName='Player 2' symbol='O' isActive={activePlayer === 'O'} />
         </ol>
-        {winner && <p>You won, {winner}!</p>}
+        {winner && <GameOver winner={winner}/>}
         <Gameboard onSelectSquare={handleSelectSquare} board = {gameBoard}/>
       </div>
       <Log turns = {gameTurns}/>
