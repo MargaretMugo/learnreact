@@ -18,7 +18,11 @@ function App() {
   //const [activePlayer, setActivePlayer] = useState('X');
   const activePlayer = deriveActivePlayer(gameTurns);
 
-  let gameBoard;
+  let gameBoard = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ];
 
   for (const turn of gameTurns) {
     const { square, player } = turn;
@@ -43,8 +47,7 @@ function App() {
     setGameTurns(
       (prevTurns) => {
         const currentPlayer = deriveActivePlayer(prevTurns);
-        const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player : activePlayer }, ...prevTurns];
-        return updatedTurns;
+        const updatedTurns = [{ square: { row: rowIndex, col: colIndex }, player: currentPlayer }, ...prevTurns];
       });//...prevTurns copies the existing prevTurn);
 }
   return (
